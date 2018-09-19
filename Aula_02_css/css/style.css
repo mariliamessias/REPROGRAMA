@@ -32,9 +32,15 @@ h2 {
 
 /* SEÇÃO SOBRE */
 .secao-sobre {
-    background-color: white;
+
     width: 35%;
     margin: 0 auto;
+   border-radius: 0 0 70px 70px; 
+}
+
+.secao-sobre:hover{
+    
+   background: #51bcc8;
 }
 
 .sobre-conteudo__img {
@@ -49,6 +55,13 @@ h2 {
      -o-filter: grayscale(100%);
     filter: grayscale(100%);
 }  
+
+.sobre-conteudo__img:hover{
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+
+}
     
 .sobre-conteudo {
     /* font-family: 'Lato', sans-serif; */
@@ -76,6 +89,9 @@ h2 {
 .sobre-conteudo__redes-sociais img:hover{
     -webkit-filter: sepia(1) hue-rotate(200deg);
     filter: sepia(1) hue-rotate(200deg);
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
    
 }
 
