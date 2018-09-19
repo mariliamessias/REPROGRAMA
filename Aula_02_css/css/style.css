@@ -33,7 +33,7 @@ h2 {
 /* SEÇÃO SOBRE */
 .secao-sobre {
     background-color: white;
-    width: 50%;
+    width: 35%;
     margin: 0 auto;
 }
 
@@ -167,7 +167,7 @@ h2{
 }
 .secao-sobre{
     background-color: red;
-
+    width: 50%;
 }
 
 .sobre-conteudo__redes-sociais img {
@@ -182,6 +182,8 @@ h2{
 @media only screen and (min-width: 961px) and (max-width: 1080px) {
     .secao-sobre{
         background-color: orange;
+        width: 50%;
+
     }
 
     h1::selection {
