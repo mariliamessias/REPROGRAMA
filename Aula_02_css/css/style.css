@@ -201,6 +201,7 @@ h2{
 @media only screen and (min-width: 1081px) {
     .secao-sobre{
         background-color:#80c0d6;
+        width: 35%;
     }
 
     h1::selection {
@@ -212,4 +213,4 @@ h2{
         color:lawngreen;
         background:red;
      }
-}
+}/
