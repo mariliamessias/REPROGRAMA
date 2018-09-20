@@ -51,11 +51,15 @@
 
         <div>
             <label for="texto">Selecione um tópico</label>
-            <select name="dropdown">
+            <select id="selectSite" name="dropdown">
+                <option value="contato" selected>Selecione uma Opção</option>
                 <option value="contato">Deixar meu site mais bonito</option>
+                <option value="contato">Deixar meu site mais rápido</option>
+                <option value="contato">Deixar meu site responsivo</option>
+                <option value="contato">Deixar meu site colorido</option>
             </select>
         </div>
-        <button class="testaSenha" onclick="testaSenha()">Checar Select</button>
+        <button class="testaSenha" onclick="testaOption(event)">Checar Select</button>
 
         <div>
             <label for="texto">Escolha um valor</label>
@@ -87,20 +91,20 @@ var senha = document.querySelector("#senha").value;
 
 if ((!usuario) &&(senha.length < 6))
 { 
-  alert("campo usuário em branco! \n e Informe uma senha co mais de 6 dígitos!"); 
+  alert("Os dados abaixo são necessários para o envio do formulário: \n\n - Preencha o campo usuário. \n - Informe uma senha com mais de 6 dígitos!"); 
 }
 else if(senha.length < 6){ alert("informe uma senha com mais de 6 digitos");
 }
-else { alert("campo usuário em branco!");}
+else { alert("Preencha o campo usuário em branco!");}
 }
 
 function testaCheck(event){
   event.preventDefault();
 
-var mulher = document.getElementById("mulher");
-var poderosa = document.getElementById("poderosa");
-var linda = document.getElementById("linda");
-var maravilhosa = document.getElementById("maravilhosa");
+    var mulher = document.getElementById("mulher");
+    var poderosa = document.getElementById("poderosa");
+    var linda = document.getElementById("linda");
+    var maravilhosa = document.getElementById("maravilhosa");
 
 if ((!mulher.checked) && (!poderosa.checked) && (!linda.checked) && (!maravilhosa.checked))alert("Selecione pelo menos uma opção!");
   
@@ -108,15 +112,14 @@ if ((!mulher.checked) && (!poderosa.checked) && (!linda.checked) && (!maravilhos
 
 function testaRadio(event){
   event.preventDefault();
-var sforca = document.getElementById("sforca");
-var invisivel = document.getElementById("invisivel");
-var ler = document.getElementById("ler");
-var svelocidade = document.getElementById("svelocidade");
+    var sforca = document.getElementById("sforca");
+    var invisivel = document.getElementById("invisivel");
+    var ler = document.getElementById("ler");
+    var svelocidade = document.getElementById("svelocidade");
 
 if ((!sforca.checked) && (!invisivel.checked) && (!ler.checked) && (!svelocidade.checked)) alert("Selecione uma opção apenas");
 }
 </script>
-
 
 </body>
 </html>
