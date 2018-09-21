@@ -18,11 +18,13 @@
         <div>
             <label for="texto">Usuário</label>
             <input type="text" name="usuario" class="half-col" id="usuario">
+            <p id="usuarioMsg"></p>
 
         </div>
         <div>
             <label for="texto">Senha</label>
             <input type="text" name="texto" class="half-col" id="senha">
+            <p id="senhaMsg"></p>
             <button class="testaSenha" onclick="testaSenha(event)">Checar senha</button>
         </div>
 
@@ -33,6 +35,8 @@
                 <input type="checkbox" name="mulher" value="Poderosa" id="poderosa"> Poderosa <br>
                 <input type="checkbox" name="mulher" value="Linda" id="linda"> Linda <br>
                 <input type="checkbox" name="mulher" value="Maravilhosa" id="maravilhosa"> Maravilhosa <br>
+                <input type="checkbox" name="mulher" value="MAISUM" id="maisum"> Maravilhosa <br>
+                <input type="checkbox" name="mulher" value="maisdois" id="maisdois"> Maravilhosa <br>
             </div>
             <button class="testaCkeck" onclick="testaCheck(event)">Checar checkbox</button>
 
@@ -59,7 +63,7 @@
                 <option value="contato">Deixar meu site colorido</option>
             </select>
         </div>
-        <button class="testaSenha" onclick="testaOption(event)">Checar Select</button>
+        <button class="testaSelect" id="testaSelect1">Checar Select</button>
 
         <div>
             <label for="texto">Escolha um valor</label>
@@ -87,27 +91,50 @@ function testaSenha(event){
 event.preventDefault();
 
 var usuario = document.querySelector("#usuario").value; 
-var senha = document.querySelector("#senha").value;       
+var senha = document.querySelector("#senha").value;
+document.getElementById('usuarioMsg').textContent = "";
+document.getElementById('senhaMsg').textContent = "";     
 
-if ((!usuario) &&(senha.length < 6))
+if (!usuario && senha.length < 6)
 { 
-  alert("Os dados abaixo são necessários para o envio do formulário: \n\n - Preencha o campo usuário. \n - Informe uma senha com mais de 6 dígitos!"); 
+    document.getElementById('usuarioMsg').textContent = "Preencha o campo usuário.";
+    document.getElementById('senhaMsg').textContent = "Preencha o campo senha com mais de seis dígitos!";
 }
-else if(senha.length < 6){ alert("informe uma senha com mais de 6 digitos");
+else if(senha.length < 6){ 
+
+    document.getElementById('usuarioMsg').textContent = "";
+    document.getElementById('senhaMsg').textContent = "Preencha o campo senha com mais de seis dígitos!.";
 }
-else { alert("Preencha o campo usuário em branco!");}
+else if(!usuario){ 
+document.getElementById('senhaMsg').textContent = "";
+document.getElementById('usuarioMsg').textContent = "Preencha o campo usuário.";
 }
 
+}
 function testaCheck(event){
   event.preventDefault();
-
+    
+    var selecionado = "";
     var mulher = document.getElementById("mulher");
     var poderosa = document.getElementById("poderosa");
     var linda = document.getElementById("linda");
     var maravilhosa = document.getElementById("maravilhosa");
-
-if ((!mulher.checked) && (!poderosa.checked) && (!linda.checked) && (!maravilhosa.checked))alert("Selecione pelo menos uma opção!");
   
+if((!mulher.checked) && (!poderosa.checked) && (!linda.checked) && (!maravilhosa.checked)){
+   alert("Selecione pelo menos uma opção!");
+}
+else{
+
+if(mulher.checked){selecionado = selecionado + "\n mulher";}
+if(poderosa.checked){selecionado = selecionado + "\n poderosa";}
+if(linda.checked){selecionado = selecionado + "\n linda";}
+if(maravilhosa.checked){ selecionado = selecionado + "\n maravilhosa";}
+
+}
+
+if(selecionado){
+    alert("O(s) valores selecionados: \n" + selecionado);
+}
 }
 
 function testaRadio(event){
@@ -119,6 +146,18 @@ function testaRadio(event){
 
 if ((!sforca.checked) && (!invisivel.checked) && (!ler.checked) && (!svelocidade.checked)) alert("Selecione uma opção apenas");
 }
+
+var testaoption = document.querySelector("#testaSelect1");
+
+testaoption.addEventListener('click', function(event){
+    event.preventDefault();
+
+   var selecionado = document.getElementById("selectSite").selectedIndex;
+   if (selecionado == "0"){
+       alert("selecione uma opção!");
+   }
+
+});
 </script>
 
 </body>

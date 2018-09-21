@@ -11,7 +11,18 @@ body {
 section{
  width: 100%;
 }
-
+#usuarioMsg{
+    text-align: right;
+    margin-right: 40px;
+    color: #b30000;
+    font-style: italic;
+}
+#senhaMsg{
+    text-align: right;
+    margin-right: 40px;
+    color:#b30000;
+    font-style: italic;
+}
 h1{
 text-align: center;
 }

@@ -32,12 +32,13 @@
 	var psw = document.getElementById('psw').value;
 
 		if(username == 'admin' && psw == 'admin'){
-			document.getElementById('idMsg').textContent = "dados de acesso corretos!";
-			document.getElementById('idMsg').style.color = "green";
+			document.getElementById('idMsg').textContent = "sucesso";
+			document.getElementById('idMsg').style.color = "green"
 		}else{
-			document.getElementById('idMsg').textContent = "usuário e senha incorretos.";
+			document.getElementById('idMsg').textContent = "erro";
 			document.getElementById('idMsg').style.color = "red";
 		}
+
 	});
 
 </script>
