@@ -35,8 +35,6 @@
                 <input type="checkbox" name="mulher" value="Poderosa" id="poderosa"> Poderosa <br>
                 <input type="checkbox" name="mulher" value="Linda" id="linda"> Linda <br>
                 <input type="checkbox" name="mulher" value="Maravilhosa" id="maravilhosa"> Maravilhosa <br>
-                <input type="checkbox" name="mulher" value="MAISUM" id="maisum"> Maravilhosa <br>
-                <input type="checkbox" name="mulher" value="maisdois" id="maisdois"> Maravilhosa <br>
             </div>
             <button class="testaCkeck" onclick="testaCheck(event)">Checar checkbox</button>
 
@@ -114,27 +112,28 @@ document.getElementById('usuarioMsg').textContent = "Preencha o campo usuário."
 function testaCheck(event){
   event.preventDefault();
     
-    var selecionado = "";
-    var mulher = document.getElementById("mulher");
+    /*var mulher = document.getElementById("mulher");
     var poderosa = document.getElementById("poderosa");
     var linda = document.getElementById("linda");
     var maravilhosa = document.getElementById("maravilhosa");
-  
-if((!mulher.checked) && (!poderosa.checked) && (!linda.checked) && (!maravilhosa.checked)){
-   alert("Selecione pelo menos uma opção!");
+  */
+var selecionado = document.getElementsByName("mulher");
+var valor = "";
+var boolean = false;
+for (var i = 0; i < selecionado.length; i++){
+   if (selecionado[i].checked){
+        valor = valor + "\n" + selecionado[i].value;
+       boolean = true;
+   }
 }
-else{
-
-if(mulher.checked){selecionado = selecionado + "\n mulher";}
-if(poderosa.checked){selecionado = selecionado + "\n poderosa";}
-if(linda.checked){selecionado = selecionado + "\n linda";}
-if(maravilhosa.checked){ selecionado = selecionado + "\n maravilhosa";}
-
+if (boolean == false){
+    alert("Por gentileza selecionar uma opção!");
+}else{
+    alert("Valores selecionados: \n" + valor);
 }
 
-if(selecionado){
-    alert("O(s) valores selecionados: \n" + selecionado);
-}
+ 
+
 }
 
 function testaRadio(event){
