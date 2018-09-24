@@ -145,18 +145,20 @@ function testaRadio(event){
     }else{
         alert("Valores selecionados: \n" + mensagem);
     }
-
 }
 
 var testaoption = document.querySelector("#testaSelect1");
 
 testaoption.addEventListener('click', function(event){
     event.preventDefault();
+    var booleanSelect = false;
 
-   var selecionado = document.getElementById("selectSite").selectedIndex;
-   if (selecionado == "0"){
-       alert("selecione uma opção!");
-   }
+   var selecionadoSelect = document.getElementById("selectSite");
+    if (selecionadoSelect.selectedIndex != 0){
+      alert( "Opção selecionada: \n" + selecionadoSelect.options[selecionadoSelect.selectedIndex].text);
+    }else{
+        alert("Selecione ao menos uma opção!");
+    }
 
 });
 </script>
