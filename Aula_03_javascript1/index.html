@@ -43,10 +43,10 @@
         <div>
             <label for="texto">Escolha uma opção</label>
             <div class="half-col">
-                <input type="radio" name="poder" value="superForca" id="sforca"> Super força <br>
-                <input type="radio" name="poder" value="serInvisivel" id="invisivel"> Ser invisível <br>
-                <input type="radio" name="poder" value="lerMentes" id="ler"> Ler Mentes <br>
-                <input type="radio" name="poder" value="superVelocidade" id="svelocidade"> Super Velocidade <br>
+                <input type="radio" name="poder" value="Super Forca" id="sforca"> Super força <br>
+                <input type="radio" name="poder" value="Ser Invisivel" id="invisivel"> Ser invisível <br>
+                <input type="radio" name="poder" value="Ler Mentes" id="ler"> Ler Mentes <br>
+                <input type="radio" name="poder" value="Super Velocidade" id="svelocidade"> Super Velocidade <br>
             </div>
             <button class="testaSenha" onclick="testaRadio(event)">Checar Radio</button>
         </div>
@@ -112,11 +112,6 @@ document.getElementById('usuarioMsg').textContent = "Preencha o campo usuário."
 function testaCheck(event){
   event.preventDefault();
     
-    /*var mulher = document.getElementById("mulher");
-    var poderosa = document.getElementById("poderosa");
-    var linda = document.getElementById("linda");
-    var maravilhosa = document.getElementById("maravilhosa");
-  */
 var selecionado = document.getElementsByName("mulher");
 var valor = "";
 var boolean = false;
@@ -132,18 +127,25 @@ if (boolean == false){
     alert("Valores selecionados: \n" + valor);
 }
 
- 
-
 }
 
 function testaRadio(event){
   event.preventDefault();
-    var sforca = document.getElementById("sforca");
-    var invisivel = document.getElementById("invisivel");
-    var ler = document.getElementById("ler");
-    var svelocidade = document.getElementById("svelocidade");
+  var selecionadoRadio = document.getElementsByName("poder");
+  var mensagem = "";
+  var booleanRadio = false;
+    for (var i = 0; i < selecionadoRadio.length; i++){
+    if (selecionadoRadio[i].checked){
+        mensagem = mensagem + "\n" + selecionadoRadio[i].value;
+        booleanRadio = true;
+    }
+    }
+    if (booleanRadio == false){
+        alert("Por gentileza selecionar uma opção!");
+    }else{
+        alert("Valores selecionados: \n" + mensagem);
+    }
 
-if ((!sforca.checked) && (!invisivel.checked) && (!ler.checked) && (!svelocidade.checked)) alert("Selecione uma opção apenas");
 }
 
 var testaoption = document.querySelector("#testaSelect1");
