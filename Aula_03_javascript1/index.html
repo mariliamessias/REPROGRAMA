@@ -25,7 +25,7 @@
             <label for="texto">Senha</label>
             <input type="text" name="texto" class="half-col" id="senha">
             <p id="senhaMsg"></p>
-            <button class="testaSenha" onclick="testaSenha(event)">Checar senha</button>
+           <!-- <button class="testaSenha" onclick="testaSenha(event)">Checar senha</button>-->
         </div>
 
         <div>
@@ -35,8 +35,9 @@
                 <input type="checkbox" name="mulher" value="Poderosa" id="poderosa"> Poderosa <br>
                 <input type="checkbox" name="mulher" value="Linda" id="linda"> Linda <br>
                 <input type="checkbox" name="mulher" value="Maravilhosa" id="maravilhosa"> Maravilhosa <br>
+                <p id="checkMsg"></p>
             </div>
-            <button class="testaCkeck" onclick="testaCheck(event)">Checar checkbox</button>
+           <!-- <button class="testaCkeck" onclick="testaCheck(event)">Checar checkbox</button>-->
 
         </div>
 
@@ -47,8 +48,9 @@
                 <input type="radio" name="poder" value="Ser Invisivel" id="invisivel"> Ser invisível <br>
                 <input type="radio" name="poder" value="Ler Mentes" id="ler"> Ler Mentes <br>
                 <input type="radio" name="poder" value="Super Velocidade" id="svelocidade"> Super Velocidade <br>
+                <p id="radioMsg"></p>
             </div>
-            <button class="testaSenha" onclick="testaRadio(event)">Checar Radio</button>
+           <!-- <button class="testaSenha" onclick="testaRadio(event)">Checar Radio</button>-->
         </div>
 
         <div>
@@ -60,38 +62,56 @@
                 <option value="contato">Deixar meu site responsivo</option>
                 <option value="contato">Deixar meu site colorido</option>
             </select>
+            <p id="optionMsg"></p>
+            
         </div>
-        <button class="testaSelect" id="testaSelect1">Checar Select</button>
+        <!--<button class="testaSelect" id="testaSelect1">Checar Select</button>-->
 
         <div>
             <label for="texto">Escolha um valor</label>
-            <input type="number" name="valorNumero" step="1" onkeypress="testaValor()">
+            <input type="number" id="valorNumero" step="1">
+            <p id="valorMsg"></p>
         </div>
-        
+      <!--  <button class="testaV"> Checar Valor</button>-->
         <div>
             <label for="texto">Comentário</label>
-            <input type="text" name="valor">
+            <textarea rows="4" cols="30"></textarea>
         </div>
 
         <div>
             <div class="half-col"></div>
             <button class="btn btn_grey">Limpar</button>
-            <input class="btn btn_purple" type="submit" value="Enviar"/>
+            <input class="btn btn_purple" id="enviar" type="submit" value="Enviar"/>
         </div>
       </section>
     </form>
   </main>
 
 <script>
+/*
 
-function testaSenha(event){
+var botaoValor = document.querySelector(".testaV");
+
+botaoValor.addEventListener('click', function(){
+    var valorN = document.getElementById('valorNumero');
+    if (valorN.value == ""){
+        alert("Por gentileza informe um número!");
+    } else{ alert("O valor inserido foi: " + valorN.value);}
+
+});
+ */
+
+ bEnviar = document.getElementById("enviar");
+
+ bEnviar.addEventListener('click', function(event){
 
 event.preventDefault();
 
 var usuario = document.querySelector("#usuario").value; 
 var senha = document.querySelector("#senha").value;
 document.getElementById('usuarioMsg').textContent = "";
-document.getElementById('senhaMsg').textContent = "";     
+document.getElementById('senhaMsg').textContent = "";
+document.getElementById('checkMsg').textContent= "";     
 
 if (!usuario && senha.length < 6)
 { 
@@ -108,10 +128,7 @@ document.getElementById('senhaMsg').textContent = "";
 document.getElementById('usuarioMsg').textContent = "Preencha o campo usuário.";
 }
 
-}
-function testaCheck(event){
-  event.preventDefault();
-    
+
 var selecionado = document.getElementsByName("mulher");
 var valor = "";
 var boolean = false;
@@ -122,18 +139,17 @@ for (var i = 0; i < selecionado.length; i++){
    }
 }
 if (boolean == false){
-    alert("Por gentileza selecionar uma opção!");
+    document.getElementById('checkMsg').textContent = "Por gentileza selecionar uma opção!";
 }else{
-    alert("Valores selecionados: \n" + valor);
+    document.getElementById('checkMsg').textContent = "Valores selecionados:"+ valor;
 }
 
-}
 
-function testaRadio(event){
-  event.preventDefault();
-  var selecionadoRadio = document.getElementsByName("poder");
+var selecionadoRadio = document.getElementsByName("poder");
   var mensagem = "";
   var booleanRadio = false;
+  document.getElementById('radioMsg').textContent = "";
+
     for (var i = 0; i < selecionadoRadio.length; i++){
     if (selecionadoRadio[i].checked){
         mensagem = mensagem + "\n" + selecionadoRadio[i].value;
@@ -141,31 +157,30 @@ function testaRadio(event){
     }
     }
     if (booleanRadio == false){
-        alert("Por gentileza selecionar uma opção!");
+        document.getElementById('radioMsg').textContent = "Por gentileza selecionar uma opção!";
     }else{
-        alert("Valores selecionados: \n" + mensagem);
+        document.getElementById('radioMsg').textContent = "Valor selecionados: \n" + mensagem;
     }
-}
 
-var testaoption = document.querySelector("#testaSelect1");
-
-testaoption.addEventListener('click', function(event){
-    event.preventDefault();
-    var booleanSelect = false;
+   var booleanSelect = false;
+   document.getElementById('optionMsg').textContent  = "";
 
    var selecionadoSelect = document.getElementById("selectSite");
     if (selecionadoSelect.selectedIndex != 0){
-      alert( "Opção selecionada: \n" + selecionadoSelect.options[selecionadoSelect.selectedIndex].text);
+        document.getElementById('optionMsg').textContent = "Opção selecionada: \n" + selecionadoSelect.options[selecionadoSelect.selectedIndex].text;
     }else{
-        alert("Selecione ao menos uma opção!");
+        document.getElementById('optionMsg').textContent  ="Selecione ao menos uma opção!";
     }
 
-});
+    var valorN = document.getElementById('valorNumero');
+    document.getElementById("valorMsg").textContent="";
 
-function testaValor(){
-    var valorN = document.getElementsByName("valorNumero").value;
-    alert(valorN);
-}
+    if (valorN.value == ""){
+        document.getElementById("valorMsg").textContent= "Por gentileza informe um número!";
+    } else{ document.getElementById("valorMsg").textContent = "O valor inserido foi: " + valorN.value;}
+
+ });
+
 
 </script>
 

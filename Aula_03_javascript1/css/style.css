@@ -8,6 +8,11 @@ body {
     font-size: 14px;
 }
 
+#optionMsg, #valorMsg{
+    text-align: right;
+    margin-right: 100px;
+}
+
 section{
  width: 100%;
 }
@@ -28,17 +33,17 @@ text-align: center;
 }
 /* FORM */
 .form {
-  padding: 20px;
+  padding: 10px;
     width: 50%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: rosybrown;
     border-radius: 50px;
 }
 
     .form > div {
-        margin-top: 25px;
-        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     label {
